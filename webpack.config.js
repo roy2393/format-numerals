@@ -15,7 +15,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js']
   },
   output: {
-    filename: './formatNumerals.bundle.js',
+    filename: './index.js',
     path: path.resolve(__dirname, 'dist')
   }
 };
