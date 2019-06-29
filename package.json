@@ -1,8 +1,8 @@
 {
   "name": "format-numerals",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Formatter to convert numbers into string with different configs",
-  "main": "src/index.js",
+  "main": "dist/index.ts",
   "scripts": {
     "test": "jest --verbose --coverage",
     "build": "webpack -p",
@@ -20,10 +20,10 @@
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
-    "codecov": "^3.5.0",
     "@babel/preset-typescript": "^7.3.3",
     "@types/jest": "^24.0.15",
     "babel-preset-es2015": "^6.24.1",
+    "codecov": "^3.5.0",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
