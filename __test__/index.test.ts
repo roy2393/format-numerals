@@ -17,3 +17,7 @@ test("Checking for floating numbers", () => {
   expect(FN.formatNumber(100000.53)).toBe("$1,00,000.53");
 });
 
+test("Checking for floating numbers", () => {
+  expect(FN.formatNumber(100.53)).toBe("$100.53");
+});
+
