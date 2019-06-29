@@ -1,3 +1,7 @@
 language: node_js
 node_js:
   - "10.14.2"
+scripts:
+  - yarn add codecov -g
+after_success:
+  - codecov
