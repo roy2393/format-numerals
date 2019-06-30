@@ -8,4 +8,5 @@ branches:
   only: master
 after_success:
   - codecov
+  - yarn run build
   - yarn run semantic-release
