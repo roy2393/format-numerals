@@ -4,7 +4,8 @@ node_js:
 cache:
   directories:
     - node_modules/
-scripts:
-  - yarn add codecov -g
+branches:
+  only: master
 after_success:
   - codecov
+  - yarn run semantic-release
