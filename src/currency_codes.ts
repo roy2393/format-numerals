@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   USD: "$",
   CAD: "CA$",
   EUR: "€",

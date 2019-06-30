@@ -1,4 +1,4 @@
-import CURRENCY_CODES from "./currency_codes";
+const CURRENCY_CODES =  require("./currency_codes");
 
 /**
  * Function returns comma separated string of numbers
@@ -47,7 +47,7 @@ interface ConfigProps {
   curr?: string;
   comma?: 0 | 1;
 }
-export default function(amount: number, config?: ConfigProps) {
+module.exports = function(amount: number, config?: ConfigProps) {
   const sanitizedConfigs: ConfigProps = sanitizeConfig(config);
   const sanitizedAmount = sanitizeInput(amount);
   if (sanitizedAmount === null) {
