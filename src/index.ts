@@ -47,7 +47,7 @@ interface ConfigProps {
   curr?: string;
   comma?: 0 | 1;
 }
-module.exports = function(amount: number, config?: ConfigProps) {
+export function formatNumerals(amount: number, config?: ConfigProps) {
   const sanitizedConfigs: ConfigProps = sanitizeConfig(config);
   const sanitizedAmount = sanitizeInput(amount);
   if (sanitizedAmount === null) {

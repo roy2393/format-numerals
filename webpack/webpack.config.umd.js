@@ -17,7 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     libraryTarget: "umd",
-    library: "formatNumerals",
+    library: "FN",
     filename: "./index.umd.js"
   }
 };
