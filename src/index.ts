@@ -1,50 +1,64 @@
 import CURRENCY_CODES from "./currency_codes";
 
-function numberWithCommas(x) {
-  x = x.toString();
+/**
+ * Function returns comma separated string of numbers
+ * based on their config params
+ * @param {*} x
+ * @returns
+ */
+function numberWithCommas(num: number, config: ConfigProps) {
+  let val = num.toString();
   let afterPoint = "";
-  if (x.indexOf(".") > 0) afterPoint = x.substring(x.indexOf("."), x.length);
-  x = Math.floor(x);
-  x = x.toString();
-  let lastThree = x.substring(x.length - 3);
-  const otherNumbers = x.substring(0, x.length - 3);
-  if (otherNumbers != "") lastThree = `,${lastThree}`;
-  const res =
-    otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+  if (val.indexOf(".") > 0) {
+    afterPoint = val.substring(val.indexOf("."), val.length);
+  }
+  val = Math.floor(num).toString();
 
-  return res;
+  if (config.comma === 1) {
+    let lastThree = val.substring(val.length - 3);
+    const otherNumbers = val.substring(0, val.length - 3);
+    if (otherNumbers != "") lastThree = `,${lastThree}`;
+    const result =
+      otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
+      lastThree +
+      afterPoint;
+
+    return result;
+  }
+  return val.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + afterPoint;
 }
 
-const DEFAULT_CURR = "USD";
 function sanitizeConfig(config: ConfigProps): ConfigProps {
-  if (typeof config !== "object" || !config.curr) {
-    return {
-      curr: DEFAULT_CURR
-    };
+  if (typeof config !== "object") {
+    return {};
   }
 
   return config;
 }
 
-function sanitizeInput(amount:number): number {
-  if(typeof amount !== 'number') {
+function sanitizeInput(amount: number): number {
+  if (typeof amount !== "number") {
     return null;
   }
   return amount;
 }
 
 interface ConfigProps {
-  curr: string;
+  curr?: string;
+  comma?: 0 | 1;
 }
-export default {
-  formatNumber: (amount: number, config?: ConfigProps) => {
-    const sanitizedConfigs: ConfigProps = sanitizeConfig(config);
-    const sanitizedAmount = sanitizeInput(amount);
-    if (sanitizedAmount === null) {
-      return NaN;
-    }
-    return `${
-      CURRENCY_CODES[sanitizedConfigs.curr].symbol
-      }${numberWithCommas(sanitizedAmount)}`;
+export default function(amount: number, config?: ConfigProps) {
+  const sanitizedConfigs: ConfigProps = sanitizeConfig(config);
+  const sanitizedAmount = sanitizeInput(amount);
+  if (sanitizedAmount === null) {
+    return NaN;
   }
-};
+  if (sanitizedConfigs.curr) {
+    return `${CURRENCY_CODES[sanitizedConfigs.curr]}${numberWithCommas(
+      sanitizedAmount,
+      sanitizedConfigs
+    )}`;
+  }
+
+  return `${numberWithCommas(sanitizedAmount, sanitizedConfigs)}`;
+}
