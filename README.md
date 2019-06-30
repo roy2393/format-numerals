@@ -3,7 +3,7 @@
 format-numerals is a JavaScript library to format numbers into
 strings based on various available configs
 
-[![Build Status](https://travis-ci.org/roy2393/format-numerals.svg?branch=master)](https://travis-ci.org/roy2393/format-numerals)
+[![Build Status](https://travis-ci.org/roy2393/format-numerals.svg?branch=master)](https://travis-ci.org/roy2393/format-numerals) [![Greenkeeper badge](https://badges.greenkeeper.io/roy2393/format-numerals.svg)](https://greenkeeper.io/)
 ![Codecov branch](https://img.shields.io/codecov/c/github/roy2393/format-numerals/master.svg)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/roy2393/format-numerals.svg)
 ![GitHub](https://img.shields.io/github/license/roy2393/format-numerals.svg)
