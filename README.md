@@ -16,25 +16,39 @@ $ npm install format-numerals
 
 ## Usage
 
+### Common JS Module
+
 ```js
 const { formatNumerals }  = require('format-numerals')
 
 // By default comma separator will be placed after every 3rd digit from
 // left of decimal point
-formatNumber(100000.53)
+formatNumerals(100000.53)
 // => "100,000.53"
 
 // comma: 1, will follow Indian number system and will place comma separator
 // after in 3-2-2... pattern
-formatNumber(100000, {comma: 1}
+formatNumerals(100000, {comma: 1}
 // => "1,00,000"
 
 // curr: 'INR' will add currency symbol before the number string
-formatNumber(1000000, { curr: 'INR', comma: 1 })
+formatNumerals(1000000, { curr: 'INR', comma: 1 })
 // => "₹10,00,000"
 
-formatNumber(1000000, { curr: 'USD' })
+formatNumerals(1000000, { curr: 'USD' })
 // => "$1,000,000"
+```
+
+### UMD
+
+```js
+<script src="https://unpkg.com/format-numerals@0.1.2/dist/index.umd.js" />
+
+<script>
+  // FN will be added to global scope
+  console.log(FN.formatNumerals(1000000))
+  //// => "1,000,000"
+</script>
 ```
 
 ## License
