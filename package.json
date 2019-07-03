@@ -19,11 +19,10 @@
   ],
   "author": "Rohit Roy",
   "license": "MIT",
-  "dependencies": {
-    "awesome-typescript-loader": "^5.2.1",
-    "source-map-loader": "^0.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "source-map-loader": "^0.2.4",
+    "awesome-typescript-loader": "^5.2.1",
     "@babel/preset-typescript": "^7.3.3",
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
