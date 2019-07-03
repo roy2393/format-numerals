@@ -3,7 +3,9 @@ const CURRENCY_CODES =  require("./currency_codes");
 /**
  * Function returns comma separated string of numbers
  * based on their config params
- * @param {*} x
+ *
+ * @param {number} num
+ * @param {ConfigProps} config
  * @returns
  */
 function numberWithCommas(num: number, config: ConfigProps) {
@@ -28,6 +30,12 @@ function numberWithCommas(num: number, config: ConfigProps) {
   return val.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + afterPoint;
 }
 
+/**
+ * validate config params
+ *
+ * @param {ConfigProps} config
+ * @returns {ConfigProps}
+ */
 function sanitizeConfig(config: ConfigProps): ConfigProps {
   if (typeof config !== "object") {
     return {};
@@ -36,6 +44,12 @@ function sanitizeConfig(config: ConfigProps): ConfigProps {
   return config;
 }
 
+/**
+ * validate input params
+ *
+ * @param {number} amount
+ * @returns {number}
+ */
 function sanitizeInput(amount: number): number {
   if (typeof amount !== "number") {
     return null;
