@@ -5,7 +5,9 @@ cache:
   directories:
     - node_modules/
 branches:
-  only: master
+  only:
+    - master
+    - greenkeeper/
 after_success:
   - codecov
   - yarn run build
