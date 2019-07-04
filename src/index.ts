@@ -19,7 +19,11 @@ function numberWithCommas(num: number, config: ConfigProps) {
   if (config.comma === 1) {
     let lastThree = val.substring(val.length - 3);
     const otherNumbers = val.substring(0, val.length - 3);
+
+    // 1st comma added after the 3rd digit from right
     if (otherNumbers != "") lastThree = `,${lastThree}`;
+
+    // regex to add , after every 2nd number
     const result =
       otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
       lastThree +
@@ -27,6 +31,8 @@ function numberWithCommas(num: number, config: ConfigProps) {
 
     return result;
   }
+
+  // regex to add , after every 3rd number
   return val.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + afterPoint;
 }
 
