@@ -17,6 +17,10 @@
       "numbers",
       "numerals"
    ],
+   "files": [
+      "src",
+      "!__tests__"
+   ],
    "author": "Rohit Roy",
    "license": "MIT",
    "dependencies": {},
