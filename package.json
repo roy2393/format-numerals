@@ -25,7 +25,7 @@
    "license": "MIT",
    "dependencies": {},
    "devDependencies": {
-      "source-map-loader": "^0.2.4",
+      "source-map-loader": "^1.0.0",
       "awesome-typescript-loader": "^5.2.1",
       "@babel/preset-typescript": "^7.3.3",
       "@commitlint/cli": "^8.0.0",
